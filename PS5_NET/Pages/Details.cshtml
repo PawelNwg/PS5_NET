@@ -1,0 +1,17 @@
+﻿@page
+@model PS5_NET.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+    var a = Request.Query["id"].ToString();
+}
+
+<h1>Details</h1>
+<br />
+<br />
+Informacje o produkcie
+<br />
+<br />
+<a asp-page="Cart">Koszyk</a>
+<br />
+<br />
+<a asp-page="Cart" asp-route-id=@a>Dodaj do koszyka</a>
