@@ -17,21 +17,21 @@
             <tr>
                 <th scope="col">
                     @Html.DisplayNameFor(model =>
-             Model.products[0].id)
+             Model._products[0].id)
                 </th>
                 <th scope="col">
                     @Html.DisplayNameFor(model =>
-             Model.products[0].name)
+             Model._products[0].name)
                 </th>
                 <th scope="col">
                     @Html.DisplayNameFor(model =>
-             Model.products[0].price)
+             Model._products[0].price)
                 </th>
-                <th scope="col">Ilość</th>
+               
             </tr>
         </thead>
         <tbody>
-            @foreach (var p in Model.products)
+            @foreach (var p in Model._products)
             {
                 <tr>
                     <th scope="row">@Html.DisplayFor(m => p.id)</th>
@@ -49,5 +49,4 @@
     </form>
 
 
-    <span class="text-danger font-weight-bold">Twój koszyk jest pusty</span>
-
+   

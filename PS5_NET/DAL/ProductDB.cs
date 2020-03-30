@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace PS5_NET.DAL
 {
-    public class ProductDB
+    public class ProductDB 
     {
-        private List<Product> products;
+        public static List<Product> products;
         public void Load(string jsonProducts)
         {
             if (jsonProducts == null)

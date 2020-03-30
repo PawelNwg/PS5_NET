@@ -29,7 +29,7 @@ namespace PS5_NET
             {
                 Response.Cookies.Append("Cart", $"{cookie} {product.id} ");
             }
-            return RedirectToPage("Cart", new { id = product.id });
+            return RedirectToPage("Cart");
         }
     }
 }

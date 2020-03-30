@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using PS5_NET.DAL;
 using PS5_NET.Models;
 
 namespace PS5_NET
@@ -13,9 +14,10 @@ namespace PS5_NET
         [BindProperty]
         public Product product { get; set; }
 
-        public List<Product> products;
+        public List<Product> _products;
         public void OnGet()
         {
+           
             CreateCart();
         }
         private void CreateCart()
@@ -25,7 +27,7 @@ namespace PS5_NET
             if (cookie != null)
             {
                 string[] cookie_string = cookie.Split(null);
-                products = new List<Product>();
+                _products = new List<Product>();
                 Product temp = null;
                 foreach (string id in cookie_string)
                 {
@@ -35,7 +37,7 @@ namespace PS5_NET
                     }
                     if (temp != null)
                     {
-                        products.Add(temp);
+                        _products.Add(temp);
                     }
                 } 
             }
@@ -44,7 +46,8 @@ namespace PS5_NET
         }
         private Product Find(int id)
         {
-            foreach (Product p in products)
+            
+            foreach (Product p in ProductDB.products)
             {
                 if (p.id == id) 
                     return p;
