@@ -17,16 +17,12 @@ namespace PS5_NET
         public List<Product> _products;
         public void OnGet()
         {
-           
-            CreateCart();
-        }
-        private void CreateCart()
-        {
+
             LoadDB();
             var cookie = Request.Cookies["Cart"];
             if (cookie != null)
             {
-                string[] cookie_string = cookie.Split(null);
+                string[] cookie_string = cookie.Split(" ");
                 _products = new List<Product>();
                 Product temp = null;
                 foreach (string id in cookie_string)
@@ -37,17 +33,17 @@ namespace PS5_NET
                     }
                     if (temp != null)
                     {
+                        if(_products.Contains(temp) != true)
                         _products.Add(temp);
                     }
-                } 
+                }
             }
-            
-
         }
+       
         private Product Find(int id)
         {
             
-            foreach (Product p in ProductDB.products)
+            foreach (Product p in productDB.products)
             {
                 if (p.id == id) 
                     return p;
