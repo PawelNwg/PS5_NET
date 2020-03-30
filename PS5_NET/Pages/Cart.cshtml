@@ -4,5 +4,50 @@
     ViewData["Title"] = "Cart";
 }
 
-<h1>Cart</h1>
+<h2>Koszyk</h2>
+<div class="row col-sm-12">
+    <a asp-page="Index" class="btn btn-primary btn-large">Wróć</a>
+</div>
+<br />
+<br />
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model =>
+             Model.products[0].id)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model =>
+             Model.products[0].name)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model =>
+             Model.products[0].price)
+                </th>
+                <th scope="col">Ilość</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.products)
+            {
+                <tr>
+                    <th scope="row">@Html.DisplayFor(m => p.id)</th>
+                    <td>@Html.DisplayFor(m => p.name)</td>
+                    <td>@Html.DisplayFor(m => p.price)</td>                    
+                </tr>
+            }
+            <tr>            
+
+            </tr>
+        </tbody>
+    </table>
+    <form method="post">
+        <button type="submit" class="btn btn-primary btn-large">Wyczyść koszyk</button>
+    </form>
+
+
+    <span class="text-danger font-weight-bold">Twój koszyk jest pusty</span>
 

@@ -14,8 +14,8 @@ namespace PS5_NET.Models
 
         [Display(Name = "Cena")]
         [Required(ErrorMessage = "Cena jest obowiązkowa")]
-        [RegularExpression(@"[0-100000000]",
-        ErrorMessage = "Cena musi być dodatnia")]
+        [Range(0,99999999)]
+        
 
         public decimal price { get; set; }
 

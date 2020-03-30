@@ -1,17 +1,31 @@
 ﻿@page
 @model PS5_NET.DetailsModel
 @{
-    ViewData["Title"] = "Details";
-    var a = Request.Query["id"].ToString();
+    ViewData["Title"] = "Details";  
 }
 
-<h1>Details</h1>
-<br />
-<br />
-Informacje o produkcie
-<br />
-<br />
-<a asp-page="Cart">Koszyk</a>
-<br />
-<br />
-<a asp-page="Cart" asp-route-id=@a>Dodaj do koszyka</a>
+<div class="row col-sm-12">
+    <a asp-page="List"><button class="btn btn-primary btn-large">Powrót</button></a>
+</div>
+<h2>Szczegóły: @Model.product.name</h2>
+<div class="pt-4">
+    <table class="table table-striped">
+
+        <tbody>
+           
+            <tr>
+                <th scope="row">@Html.DisplayNameFor(m => Model.product.name)</th>
+                <td>@Html.DisplayFor(m => Model.product.name)</td>
+            </tr>
+            <tr>
+                <th scope="row">@Html.DisplayNameFor(m => Model.product.price)</th>
+                <td>@Html.DisplayFor(m => Model.product.price)</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row col-sm-12">
+        <form method="post">
+            <button type="submit" class="btn btn-primary btn-large">Dodaj do koszyka</button>
+        </form>
+    </div>
+</div>

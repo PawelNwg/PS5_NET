@@ -73,5 +73,14 @@ namespace PS5_NET.DAL
             for (int i = 0; i < products.Count; i++)
                 products[i].id = i + 1;
         }
+
+                 
+        public Product GetProductByID(int id)
+        {
+            return products.Find(p => p.id == id);
+        }
+
+
+
     }
 }
